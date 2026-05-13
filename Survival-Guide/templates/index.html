@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mobile Developer Journey</title>
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- PARTICLES -->
+    <div id="particles-js"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+
+            <div class="logo">
+
+                <div class="logo-circle">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <div>
+                    <h1>Mobile Developer Journey</h1>
+                    <p>Survival Guide · Programación Móvil</p>
+                </div>
+
+            </div>
+
+            <div class="level-box">
+
+                <span id="level-text">Level 1</span>
+
+            </div>
+
+        </header>
+
+        <!-- PROGRESS -->
+        <section class="progress-section">
+
+            <div class="progress-info">
+
+                <span>Progreso</span>
+
+                <span id="progress-text">25%</span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"
+                     id="progress-fill"></div>
+
+            </div>
+
+        </section>
+
+        <!-- CARD -->
+        <section class="game-card">
+
+            <!-- SCREEN 1 -->
+            <div class="screen active" id="screen1">
+
+                <div class="top-icon pink">
+
+                    <i class="fa-solid fa-scroll"></i>
+
+                </div>
+
+                <h2>Cámara de las Reglas</h2>
+
+                <p class="subtitle">
+                    Antes de comenzar debes aceptar las reglas.
+                </p>
+
+                <ul>
+                    <li>✔ Asistencia mínima del 80%</li>
+                    <li>✔ Entrega puntual</li>
+                    <li>✔ Respeto en clase</li>
+                    <li>✔ Participación activa</li>
+                </ul>
+
+                <div class="question">
+
+                    <h3>Pregunta 1</h3>
+
+                    <p>¿Cuál es el mínimo de asistencia?</p>
+
+                    <div class="buttons">
+
+                        <button onclick="correcta1(this)">
+                            80%
+                        </button>
+
+                        <button onclick="incorrecta(this)">
+                            50%
+                        </button>
+
+                        <button onclick="incorrecta(this)">
+                            60%
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="question">
+
+                    <h3>Pregunta 2</h3>
+
+                    <p>¿Debes entregar prácticas a tiempo?</p>
+
+                    <div class="buttons">
+
+                        <button onclick="correcta2(this)">
+                            Sí
+                        </button>
+
+                        <button onclick="incorrecta(this)">
+                            No
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="commitment hidden"
+                     id="commit1">
+
+                    <input type="checkbox"
+                           id="check1">
+
+                    <label>
+                        Me comprometo a cumplir las reglas
+                    </label>
+
+                    <button class="continue-btn"
+                            onclick="nextScreen1()">
+
+                        Continuar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- SCREEN 2 -->
+            <div class="screen"
+                 id="screen2">
+
+                <div class="top-icon purple">
+
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <h2>Oráculo de las Notas</h2>
+
+                <p class="subtitle">
+                    Descubre cómo sobrevivir académicamente.
+                </p>
+
+                <ul>
+                    <li>⭐ Prácticas → 40%</li>
+                    <li>⭐ Proyecto → 40%</li>
+                    <li>⭐ Participación → 20%</li>
+                </ul>
+
+                <div class="question">
+
+                    <h3>Pregunta 1</h3>
+
+                    <p>¿Qué porcentaje vale el proyecto?</p>
+
+                    <div class="buttons">
+
+                        <button onclick="correcta3(this)">
+                            40%
+                        </button>
+
+                        <button onclick="incorrecta(this)">
+                            70%
+                        </button>
+
+                        <button onclick="incorrecta(this)">
+                            10%
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="question">
+
+                    <h3>Pregunta 2</h3>
+
+                    <p>¿Qué vale más?</p>
+
+                    <div class="buttons">
+
+                        <button onclick="correcta4(this)">
+                            Proyecto y prácticas
+                        </button>
+
+                        <button onclick="incorrecta(this)">
+                            Participación
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="commitment hidden"
+                     id="commit2">
+
+                    <input type="checkbox"
+                           id="check2">
+
+                    <label>
+                        Entiendo el sistema de evaluación
+                    </label>
+
+                    <button class="continue-btn"
+                            onclick="nextScreen2()">
+
+                        Continuar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- SCREEN 3 -->
+            <div class="screen"
+                 id="screen3">
+
+                <div class="top-icon blue">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                </div>
+
+                <h2>Skills a Desbloquear</h2>
+
+                <p class="subtitle">
+                    Habilidades que aprenderás.
+                </p>
+
+                <h3>🎯 Objetivo General</h3>
+
+                <p>
+                    Desarrollar aplicaciones móviles funcionales.
+                </p>
+
+                <h3>🚀 Objetivos Particulares</h3>
+
+                <ul>
+                    <li>Interfaces modernas</li>
+                    <li>Bases de datos</li>
+                    <li>Android Studio</li>
+                    <li>Lógica de programación</li>
+                </ul>
+
+                <div class="question">
+
+                    <h3>Pregunta 1</h3>
+
+                    <p>¿Qué desarrollarás?</p>
+
+                    <div class="buttons">
+
+                        <button onclick="correcta5(this)">
+                            Apps móviles
+                        </button>
+
+                        <button onclick="incorrecta(this)">
+                            Videojuegos
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="question">
+
+                    <h3>Pregunta 2</h3>
+
+                    <p>¿Qué IDE utilizarás?</p>
+
+                    <div class="buttons">
+
+                        <button onclick="correcta6(this)">
+                            Android Studio
+                        </button>
+
+                        <button onclick="incorrecta(this)">
+                            Word
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="commitment hidden"
+                     id="commit3">
+
+                    <input type="checkbox"
+                           id="check3">
+
+                    <label>
+                        Estoy lista para aprender
+                    </label>
+
+                    <button class="continue-btn"
+                            onclick="nextScreen3()">
+
+                        Continuar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- SCREEN 4 -->
+            <div class="screen"
+                 id="screen4">
+
+                <div class="top-icon green">
+
+                    <i class="fa-solid fa-calendar"></i>
+
+                </div>
+
+                <h2>Línea del Tiempo</h2>
+
+                <p class="subtitle">
+                    Fechas importantes del cuatriemestre.
+
+                </p>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+
+                        <span>20 Sept</span>
+
+                        <p>Primer Parcial</p>
+
+                    </div>
+
+                    <div class="timeline-item">
+
+                        <span>12 Junio</span>
+
+                        <p>Segundo Parcial</p>
+
+                    </div>
+
+                    <div class="timeline-item">
+
+                        <span>12 Julio</span>
+
+                        <p>Proyecto Final</p>
+
+                    </div>
+
+                    <div class="timeline-item">
+
+                        <span>15 Agosto</span>
+
+                        <p>Entrega Final</p>
+
+                    </div>
+
+                </div>
+
+                <div class="finish">
+
+                    <h2>🎉 Completado</h2>
+
+                    <p>
+                        Has sobrevivido a Programación Móvil 💖
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+    <script>
+
+        tsParticles.load("particles-js", {
+
+            particles: {
+
+                number: {
+                    value: 40
+                },
+
+                color: {
+                    value: ["#ff8ecf", "#c084fc", "#ffffff"]
+                },
+
+                opacity: {
+                    value: 0.5
+                },
+
+                size: {
+                    value: 3
+                },
+
+                move: {
+                    enable: true,
+                    speed: 1
+                }
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
