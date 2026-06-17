@@ -1,46 +1,56 @@
-import { View, Text, Button } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-export const Perfil = ({ nombre, carrera, materia, cuatrimestre }) => {
+export const Perfil = ({ nombre, carrera, materia, cuatrimestre, style }) => {
 
-    const [mostrar, setMostrar]= useState(false);
+  const [mostrar, setMostrar] = useState(false);
 
   return (
-    <View>
+    <View style={[estilos.tarjeta, style]}>
 
-      <Text>{nombre}</Text>
+      <Text style={estilos.nombre}>{nombre}</Text>
 
-      {mostrar &&
-      
-      
-      
-      <>
-      <Text>{carrera}</Text>
-      <Text>{materia}</Text>
-      <Text>{cuatrimestre}</Text>
-      </>
-      }
-      
-      <Button title={"Mostrar Perfil"}
-      onPress={() => setMostrar(!mostrar)} />
+      {mostrar && (
+        <>
+          <Text style={estilos.carrera}>{carrera}</Text>
+
+          <Text style={estilos.otrotexto}>{materia}</Text>
+
+          <Text style={estilos.otrotexto}>{cuatrimestre}</Text>
+        </>
+      )}
+
+      <Button
+        title={mostrar ? "Ocultar Perfil" : "Mostrar Perfil"}
+        onPress={() => setMostrar(!mostrar)}
+      />
 
     </View>
   );
-}
+};
 
-/*
-import React from 'react';
-import { View, Text } from 'react-native';
+const estilos = StyleSheet.create({
+  tarjeta: {
+    width: 250,
+    padding: 20,
+    margin: 10,
+    borderRadius: 15,
+    alignItems: 'center',
+  },
 
-export const Perfil = props) => {
+  nombre: {
+    fontSize: 25,
+    fontWeight: '700',
+    textTransform: 'uppercase',
+  },
 
-    return (
-      <View>
+  carrera: {
+    fontSize: 20,
+    color: 'red',
+  },
 
-        <Text> {props.nombre:} </Text>
-        <Text>{props.carrera:} </Text>
-        <Text> {props.materia:} </Text>
-        <Text> {props.cuatrimestre:} </Text>
-
-      </View>
-*/
+  otrotexto: {
+    fontSize: 15,
+    color: 'blue',
+  },
+});

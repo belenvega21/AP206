@@ -1,8 +1,6 @@
 /* ZONA 1: IMPORTACIONES DE COMPONENTES Y ARCHIVOS */
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { Saludo } from './componets/Saludo';
-import { Saludo2 } from './componets/Saludo2';
+import { StyleSheet, View } from 'react-native';
 import { Perfil } from './componets/Perfil';
 
 
@@ -11,8 +9,8 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-     
       <Perfil
+        style={styles.tarjetaRosa}
         nombre="Belén Vega"
         carrera="Sistemas"
         materia="Progra Movil"
@@ -20,11 +18,21 @@ export default function App() {
       />
 
       <Perfil
+        style={styles.tarjetaAzul}
         nombre="Gabriel"
         carrera="Admin"
         materia="Conta"
         cuatrimestre="2do"
       />
+      
+      <Perfil
+        style={styles.tarjetaRosa}
+        nombre="Belén Vega2"
+        carrera="Sistemas"
+        materia="Progra Movil"
+        cuatrimestre="9"
+      />
+
 
       <StatusBar style="auto" />
 
@@ -38,7 +46,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'flex-end',
+  },
+
+  tarjetaRosa: {
+    backgroundColor: 'pink',
+    margin: 10,
+    padding: 25,
+    borderRadius: 15,
+  },
+
+  tarjetaAzul: {
+    backgroundColor: 'lightblue',
+    margin: 10,
+    padding: 25,
+    borderRadius: 15,
   },
 });
