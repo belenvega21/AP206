@@ -9,22 +9,21 @@ import {
 
 import * as SplashScreen from 'expo-splash-screen';
 
-SplashScreen.preventAutoHideAsync().catch(() => {
-  /* Manejar errores silenciosos */
-});
 
-export default function FondoPantalla() {
+export default function ImageSplashScreen() {
   const [loading, setLoading] = useState(true);
+  const [appIsReady, setAppIsReady] = useState(false);
 
   useEffect(() => {
     async function prepararAplicacion() {
       try {
+        await SplashScreen.preventAutoHideAsync();
         
         await new Promise((resolve) => setTimeout(resolve, 3000));
       } catch (e) {
         console.warn(e);
       } finally {
-        
+        setAppIsReady(true);
         setLoading(false);
       }
     }
@@ -32,15 +31,19 @@ export default function FondoPantalla() {
     prepararAplicacion();
   }, []);
 
-  
   useEffect(() => {
-    if (!loading) {
-      
-      SplashScreen.hideAsync();
+    if (appIsReady) {
+      async function ocultarSplash() {
+        try {
+          await SplashScreen.hideAsync();
+        } catch (e) {
+          console.warn("Error al ocultar splash:", e);
+        }
+      }
+      ocultarSplash();
     }
-  }, [loading]);
+  }, [appIsReady]);
 
-  
   if (loading) {
     return (
       <View style={styles.splash}>
@@ -57,7 +60,6 @@ export default function FondoPantalla() {
       style={styles.background}
       resizeMode="cover"
     >
-      {/* El overlay ayuda a que los textos blancos contrasten y sean legibles */}
       <View style={styles.overlay}>
         <Text style={styles.titulo}>Bienvenido a React Native</Text>
         <Text style={styles.subtitulo}>
