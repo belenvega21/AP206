@@ -20,3 +20,33 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+
+
+
+/* APP CON UN SOLO SCRINTEEN 
+import { View, Text, StyleSheet } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Mi aplicación</Text>
+      <Text>Esta es la única pantalla.</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  titulo: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+});
+
+*/
