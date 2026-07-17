@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@expo/metro-runtime": "~57.0.5",
+    "@expo/vector-icons": "^15.0.2",
+    "react-dom": "19.2.3",
+    "react-native-web": "^0.21.2"
+  }
+}
