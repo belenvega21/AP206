@@ -12,10 +12,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 // URL adaptativa según el dispositivo/entorno
 const API_URL =
-  Platform.OS === 'android'
-    ? 'http://10.0.2.2:8000/v1/usuarios/'
-    : 'http://localhost:8000/v1/usuarios/';
-
+  Platform.OS === 'ios'
+    ? 'http://192.168.100.246:8000/v1/usuarios/'
+    : 'http://10.0.2.2:8000/v1/usuarios/';
+    
 export default function AltaUsuariosScreen() {
   const [nombre, setNombre] = useState('');
   const [edad, setEdad] = useState('');
